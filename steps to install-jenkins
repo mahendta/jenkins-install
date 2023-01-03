@@ -1,0 +1,22 @@
+sudo yum update –y
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum upgrade
+sudo amazon-linux-extras install java-openjdk11 -y
+sudo yum install jenkins -y
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+then copy your public ip and paste in browser with :8080
+and note inbound security should be all traffic or custom tcp 8080
+
+
+
+then paste this on insatnce only (password)
+cd /var/lib/jenkins/secrets/ 
+cat initialAdminPassword
+
+there you will get password in (encrypted format)
+copy and paste on browser you already opened for login
